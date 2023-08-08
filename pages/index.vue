@@ -3,6 +3,10 @@ import { useForm } from "vee-validate";
 import * as yup from "yup";
 import { useAppStore } from "../store/appStore";
 
+useHead({
+  title: "Home",
+});
+
 const { errors, handleSubmit, defineInputBinds } = useForm({
   validationSchema: yup.object({
     email: yup.string().email().required(),
