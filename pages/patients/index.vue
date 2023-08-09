@@ -1,14 +1,23 @@
 <script setup>
-const { data } = await useFetch("/api/patients");
-// await fetchTodos();
-const patientList = data.value.data;
+import { usePatientStore } from "@/store/patient/patientStore";
 
-console.log(data.value);
+const patientStore = usePatientStore();
+const { PatientList, getPatientList } = usePatientStore();
+
+// patientStore.getAllPatients();
+getPatientList();
+
+console.log("patientList");
+
+// const { data } = await useFetch("/api/patients");
+// const patientList = data.value.data;
+
+// console.log(data.value);
 </script>
 
 <template>
   <div class="max-w-7xl mx-auto py-12">
-    <NuxtLink to="/patients/create" class="btn btn-accent mb-4"
+    <!-- <NuxtLink to="/patients/create" class="btn btn-accent mb-4"
       >Add patient</NuxtLink
     >
     <div class="ring-2 ring-gray-200 rounded-md px-4 pb-4">
@@ -52,6 +61,6 @@ console.log(data.value);
         class="flex w-full items-center justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:outline-offset-0"
         >View all</a
       >
-    </div>
+    </div> -->
   </div>
 </template>

@@ -1,10 +1,10 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import { useForm } from "vee-validate";
 import * as yup from "yup";
 import { usePatientStore } from "@/store/patient/patientStore";
 
 //from store
-const { PatientList, fetchTodos } = usePatientStore();
+const { PatientList } = usePatientStore();
 
 // data
 const isLoading = ref(false);
@@ -17,19 +17,30 @@ const { errors, handleSubmit, defineInputBinds } = useForm({
   }),
 });
 
-// Creates a submission handler
-// It validate all fields and doesn't call your function unless all fields are valid
-const onSavePatient = handleSubmit((values) => {
-  isLoadingTitle.value = "Saving";
-
-  // PatientList.push(values);
-  isLoading.value = false;
-  console.log(values);
-});
-
 const firstName = defineInputBinds("firstName");
 const lastName = defineInputBinds("lastName");
 const email = defineInputBinds("email");
+
+// Creates a submission handler
+// It validate all fields and doesn't call your function unless all fields are valid
+const onSavePatient = async () => {
+  isLoadingTitle.value = "Saving";
+
+  console.log("inside onSavePatient function");
+
+  const { data: responseData } = await useFetch("/api/patients", {
+    method: "post",
+    body: {
+      PatientList.push({
+        firstName: firstName.value,
+        lastName: lastName.value,
+        email: email.value,
+      }),
+    },
+  });
+  console.log("data.value", responseData.value);
+  PatientList.push(responseData.value);
+};
 </script>
 
 <template>
@@ -221,6 +232,5 @@ const email = defineInputBinds("email");
       </div>
     </div>
   </div>
-</template>
-
-function usePatientStore() { throw new Error("Function not implemented."); }
+</template> -->
+<template></template>
