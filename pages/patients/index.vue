@@ -1,11 +1,12 @@
 <script setup>
 import { usePatientStore } from "@/store/patient/patientStore";
+import { storeToRefs } from "pinia";
 import { useForm } from "vee-validate";
 import * as yup from "yup";
 
 const patientStore = usePatientStore();
-const { PatientList, getPatientList } = usePatientStore();
-// getPatientList();
+const { PatientList } = storeToRefs(usePatientStore());
+patientStore.getPatientList();
 
 const { errors, handleSubmit, defineInputBinds } = useForm({
   validationSchema: yup.object({
@@ -16,15 +17,40 @@ const { errors, handleSubmit, defineInputBinds } = useForm({
 
 // Creates a submission handler
 // It validate all fields and doesn't call your function unless all fields are valid
-const onSubmit = handleSubmit((values) => {
-  patientStore.createPatient(values);
-  PatientList.push(values);
-  console.log(values);
+
+// add a watcher onSubmit to send data to server
+const onSubmit = handleSubmit(async (values) => {
+  const raw = JSON.stringify(values);
+
+  console.log("raw", raw);
+
+  let requestOptions = {
+    method: "POST",
+    body: raw,
+    redirect: "manual",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  // send data to server
+  console.log("requestOptions.value", requestOptions);
+  await patientStore.createPatient(requestOptions);
+
+  await patientStore.getPatientList();
+  // reset the form
+  // resetForm();
+});
+
+// Watch for changes in PatientList data
+watchEffect(() => {
+  // This block will be triggered whenever PatientList changes
+  console.log("PatientList has changed:", PatientList);
 });
 
 const id = defineInputBinds("id");
 const name = defineInputBinds("name");
-const email = defineInputBinds("email");
+// const email = defineInputBinds("email");
 </script>
 
 <template>
@@ -34,8 +60,8 @@ const email = defineInputBinds("email");
       <div>
         ID: <input type="number" v-bind="id" /> Name:
         <input type="text" v-bind="name" /> email:
-        <input type="email" v-bind="email" />
-        <div>{{ errors.email }}</div>
+        <!-- <input type="email" v-bind="email" />
+        <div>{{ errors.email }}</div> -->
       </div>
 
       <button class="btn">Submit</button>
@@ -45,7 +71,7 @@ const email = defineInputBinds("email");
       <ul class="text-black pt-2">
         <li v-for="(patient, index) in PatientList" :key="index">
           {{ index }}
-          name: {{ patient.email }} password: {{ patient.name }}
+          id: {{ patient.id }} name: {{ patient.name }}
         </li>
       </ul>
     </div>

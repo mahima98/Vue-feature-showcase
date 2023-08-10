@@ -25,29 +25,29 @@ export const usePatientStore = defineStore("PatientStore", {
     // },
 
     // Get list of all patients from server api patients.ts and store it in PatientList
-    // async getPatientList() {
-    //   await $fetch("http://localhost:3000/api/patients", {
-    //     method: "GET",
-    //   })
-    //     .then((response: any) => {
-    //       console.log("getPatientList - ", response.data);
-    //       this.PatientList = response.data;
-    //     })
-    //     .catch((error) => {
-    //       throw error;
-    //     });
-    // },
-
-    async createPatient(values) {
-      await $fetch("http://localhost:3000/api/patients", {
-        method: "POST",
+    async getPatientList() {
+      await fetch("http://localhost:3000/patientData", {
+        method: "GET",
       })
-        .then((response: any) => {
-          console.log("getPatientList - ", response.data);
-          this.PatientList = response.data;
-          this.PatientList.push(values);
+        .then((res) => res.json())
+        .then((patient) => {
+          this.PatientList = patient;
+          console.log(patient);
         })
         .catch((error) => {
+          throw error;
+        });
+    },
+
+    async createPatient(requestOptions) {
+      await fetch("http://localhost:3000/patientData", requestOptions)
+        .then((res) => res.json())
+        .then((patient) => {
+          // this.PatientList = patient;
+          console.log("patient", patient);
+        })
+        .catch((error) => {
+          console.log("error", error);
           throw error;
         });
     },
