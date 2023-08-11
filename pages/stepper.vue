@@ -28,14 +28,6 @@ const getActiveStep = computed(() => stepper.value[activeStep.value]);
       >
         Step 1
       </button>
-      <!-- <button
-        class="btn"
-        :class="`${activeStep === 0 ? '' : 'disabled bg-red-100'}`"
-        :disabled="activeStep > 0"
-        
-      >
-        Step 2
-      </button> -->
 
       <!-- create step 2 button and add condition to disable step 1 and step 3 but keep step 2 active -->
       <button
