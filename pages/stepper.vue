@@ -55,7 +55,7 @@ const getActiveStep = computed(() => stepper.value[activeStep.value]);
           <div class="flex justify-center items-center w-96 h-96 bg-blue-200">
             Step 1
           </div>
-          <button @click="nextStep" class="btn">Next</button>
+          <button @click="nextStep" class="btn mt-2">Next</button>
         </div>
       </transition>
       <transition name="slide-vertical" v-if="activeStep === 1">
@@ -63,16 +63,16 @@ const getActiveStep = computed(() => stepper.value[activeStep.value]);
           <div class="flex justify-center items-center w-96 h-96 bg-red-200">
             Step 2
           </div>
-          <button @click="prevStep" class="btn mr-2">Prev</button>
+          <button @click="prevStep" class="btn mt-2 mr-2">Prev</button>
           <button @click="nextStep" class="btn">Next</button>
         </div>
       </transition>
       <transition name="slide-vertical" v-if="activeStep === 2">
-        <div>
+        <div class="pt-4">
           <div class="flex justify-center items-center w-96 h-96 bg-yellow-200">
             Step 3
           </div>
-          <button @click="prevStep" class="btn mr-2">Prev</button>
+          <button @click="prevStep" class="btn mt-2 mr-2">Prev</button>
           <button @click="nextStep" class="btn">Next</button>
         </div>
       </transition>

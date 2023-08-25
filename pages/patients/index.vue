@@ -54,14 +54,28 @@ const name = defineInputBinds("name");
 </script>
 
 <template>
-  <div class="max-w-7xl mx-auto py-12 px-4">
+  <div
+    class="flex flex-col gap-4 justify-center items-center mx-auto py-12 px-4"
+  >
     <div class="text-xl font-bold">Create/add Patient</div>
-    <form @submit="onSubmit" class="py-2 flex gap-4">
+    <form
+      @submit="onSubmit"
+      class="card-body w-72 ring-1 ring-gray-200 rounded-xl shadow-xl"
+    >
       <div>
-        ID: <input type="number" v-bind="id" /> Name:
-        <input type="text" v-bind="name" /> email:
-        <!-- <input type="email" v-bind="email" />
-        <div>{{ errors.email }}</div> -->
+        <label class="label"> ID:</label>
+        <input
+          type="number"
+          v-bind="id"
+          class="input input-bordered w-full max-w-xs"
+        />
+
+        <label class="label"> Name:</label>
+        <input
+          type="text"
+          v-bind="name"
+          class="input input-bordered w-full max-w-xs"
+        />
       </div>
 
       <button class="btn">Submit</button>
