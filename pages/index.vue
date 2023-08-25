@@ -74,9 +74,9 @@ const projects = [
   },
 
   {
-    name: "React Components",
-    initials: "RC",
-    href: "#",
+    name: "vue toast",
+    initials: "VT",
+    href: "/toast",
     members: 8,
     bgColor: "bg-green-500",
   },

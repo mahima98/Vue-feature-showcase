@@ -24,6 +24,7 @@
     "@pinia/nuxt": "^0.4.11",
     "@vee-validate/yup": "^4.11.1",
     "pinia": "^2.1.6",
+    "primevue": "^3.32.2",
     "sass": "^1.64.2",
     "vee-validate": "^4.11.1"
   }

@@ -16,12 +16,18 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@pinia-plugin-persistedstate/nuxt",
   ],
-  css: ["@/assets/css/global.css"],
+  css: [
+    "@/assets/css/global.css",
+    "primevue/resources/themes/lara-light-blue/theme.css",
+  ],
   pinia: {
     autoImports: [
       // automatically imports `defineStore`
       "defineStore", // import { defineStore } from 'pinia'
       ["defineStore", "definePiniaStore"], // import { defineStore as definePiniaStore } from 'pinia'
     ],
+  },
+  build: {
+    transpile: ["primevue"],
   },
 });
