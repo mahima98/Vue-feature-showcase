@@ -8,23 +8,20 @@ useHead({
   title: "Home",
 });
 
-const text = ref();
 const toast = useToast();
+console.log("toast", toast.add);
 const isLoadingTitle = ref("");
-const greet = () => {
-  toast.add({ severity: "info", summary: "Hello " + text.value });
-};
 
 const { errors, handleSubmit, defineInputBinds } = useForm({
   validationSchema: yup.object({
-    email: yup.string().email().required(),
-    password: yup.string().min(6).required(),
+    // email: yup.string().email().required(),
+    // password: yup.string().min(6).required(),
   }),
 });
 
 // Creates a submission handler
 // It validate all fields and doesn't call your function unless all fields are valid
-const onSubmit = handleSubmit((values) => {
+const onSubmit = handleSubmit(async (values) => {
   // alert(JSON.stringify(values, null, 2));
 
   const data = JSON.stringify(values, null, 2);

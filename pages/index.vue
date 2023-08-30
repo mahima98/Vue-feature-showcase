@@ -80,5 +80,13 @@ const projects = [
     members: 8,
     bgColor: "bg-green-500",
   },
+
+  {
+    name: "Vue teleport modal",
+    initials: "TM",
+    href: "/teleport",
+    members: 8,
+    bgColor: "bg-blue-300",
+  },
 ];
 </script>
