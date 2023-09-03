@@ -1,0 +1,64 @@
+{
+  "stockData": [
+    {
+      "id": "1",
+      "p_name": "",
+      "l_rep": "Ibl (Healthactiv)",
+      "mah": "Laboratoire Chauvin B+L",
+      "count": "4000",
+      "unit": "30",
+      "expiry_date": "20/11/2023",
+      "buying_price": "10",
+      "selling_price": "25",
+      "imp": "Ibl (Healthactiv)"
+    },
+    {
+      "id": "2",
+      "p_name": "Rivetal 3M 4s",
+      "l_rep": "Anichem Pharmacy",
+      "mah": "Swiss Care vt Lt",
+      "count": "600",
+      "unit": "30",
+      "expiry_date": "20/11/2023",
+      "buying_price": "10",
+      "selling_price": "25",
+      "imp": "Anichem Pharmacy"
+    },
+    {
+      "id": "3",
+      "p_name": "Mirtapasd 4",
+      "l_rep": "Pharmavision Ltd",
+      "mah": "Indoco Remedies Limited    ",
+      "count": "600",
+      "unit": "30",
+      "expiry_date": "20/11/2023",
+      "buying_price": "10",
+      "selling_price": "25",
+      "imp": "Pharmavision Ltd"
+    },
+    {
+      "id": "4",
+      "p_name": "Nystatin Ys 4",
+      "l_rep": "Pharmavision Ltd",
+      "mah": "Indoco Remedies Limited    ",
+      "count": "5000",
+      "unit": "30",
+      "expiry_date": "20/11/2023",
+      "buying_price": "10",
+      "selling_price": "25",
+      "imp": "Pharmavision Ltd"
+    },
+    {
+      "id": "5",
+      "p_name": "Oflab 100 Dt- Dsdfadfaf",
+      "l_rep": "Pharmavision Ltd",
+      "mah": "Indoco Remedies Limited    ",
+      "count": "700",
+      "unit": "30",
+      "expiry_date": "20/11/2023",
+      "buying_price": "10",
+      "selling_price": "25",
+      "imp": "Pharmavision Ltd"
+    }
+  ]
+}

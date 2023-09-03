@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white py-24 sm:py-32">
+  <div class="bg-white py-24 sm:py-32 min-h-[100vh]">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -87,6 +87,14 @@ const projects = [
     href: "/teleport",
     members: 8,
     bgColor: "bg-blue-300",
+  },
+
+  {
+    name: "search-tableFilter-editedRow",
+    initials: "ST",
+    href: "/search-table",
+    members: 8,
+    bgColor: "bg-yellow-300",
   },
 ];
 </script>
