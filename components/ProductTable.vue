@@ -2,7 +2,6 @@
 import { watchDebounced } from "@vueuse/core";
 import { PropType } from "nuxt/dist/app/compat/capi";
 import { saveProduct } from "../services/api";
-import { dir } from "console";
 
 const props = defineProps({
   searchResults: {

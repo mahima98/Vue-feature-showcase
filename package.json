@@ -6,7 +6,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "stock-api": "json-server --watch db-api/stockData.json --port 3008"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",

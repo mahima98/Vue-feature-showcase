@@ -12,7 +12,7 @@ import { searchProducts } from "~/services/api"; // Import your API service
 
 const searchStore = useSearchStore();
 
-const performSearch = async (query) => {
+const performSearch = async (query: string) => {
   try {
     const results = await searchProducts(query);
     searchStore.setSearchResults(results);

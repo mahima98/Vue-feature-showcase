@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:3000", // JSON-server URL
+  baseURL: "http://localhost:3008", // JSON-server URL
 });
 
 export async function searchProducts(query) {
@@ -25,7 +25,7 @@ export async function saveProduct(editedProduct) {
     // Send a PUT request to update the edited product on the server
     console.log("saving", editedProduct.id);
     const response = await fetch(
-      `http://localhost:3000/stockData/${editedProduct.id}`,
+      `http://localhost:3008/stockData/${editedProduct.id}`,
       {
         method: "PUT",
         body: JSON.stringify(editedProduct),
