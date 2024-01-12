@@ -1,64 +1,18 @@
-# Nuxt 3 Minimal Starter
+# Vue-feature-showcase
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Tech stack used: 
+- Nuxt3/Vue3/CompositionAPI
+- Vee validate
+- Pinia
+- PrimeVue Vue Toast
+- TailwindCSS
+- daisyUI
 
 ## Setup
-
-Make sure to install the dependencies:
 
 ```bash
 # npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
 ```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
-# app-nuxt3-pinia-tailwind-daisy-crud-api
+<img width="1312" alt="Screenshot 2024-01-12 at 14 35 55" src="https://github.com/mahima98/Vue-feature-showcase/assets/45752743/f3bb13bc-c5ad-4761-b205-361598048a68">
