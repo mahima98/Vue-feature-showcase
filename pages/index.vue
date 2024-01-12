@@ -90,7 +90,7 @@ const projects = [
   },
 
   {
-    name: "search-tableFilter-editedRow",
+    name: "search-filter-table",
     initials: "ST",
     href: "/search-table",
     members: 8,

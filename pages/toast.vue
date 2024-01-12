@@ -73,7 +73,6 @@ const password = defineInputBinds("password");
 
     <div class="container">
       <div class="flex flex-column align-items-center mt-1">
-        <img alt="Vue logo" src="./assets/primevue-logo.png" />
         <Toast />
 
         <div class="mt-4">
@@ -86,7 +85,6 @@ const password = defineInputBinds("password");
     </div>
     <div class="container">
       <div class="flex flex-column align-items-center mt-1">
-        <img alt="Vue logo" src="./assets/primevue-logo.png" />
         <Toast />
 
         <div class="mt-4">
