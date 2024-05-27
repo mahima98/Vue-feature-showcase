@@ -10,7 +10,7 @@ const open = ref(false);
       <div class="card-body ring-1 ring-gray-200 rounded-xl shadow-xl">
         <button class="btn btn-primary" @click="open = true">open modal</button>
         <Teleport to="body">
-          <Transition name="modal">
+          <Transition name="fade">
             <div v-if="open" class="modal-mask">
               <div class="modal-container">
                 <p>Hello from the modal!</p>
@@ -26,6 +26,15 @@ const open = ref(false);
   </div>
 </template>
 <style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 .modal-mask {
   position: fixed;
   z-index: 9998;
