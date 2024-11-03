@@ -11,32 +11,18 @@
       </div>
       <div class="mx-auto mt-16">
         <div class="w-full">
-          <ul
-            role="list"
-            class="mt-3 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4"
-          >
-            <li
-              v-for="project in projects"
-              :key="project.name"
-              class="col-span-1 flex rounded-md shadow-sm"
-            >
-              <div
-                :class="[
-                  project.bgColor,
-                  'flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white',
-                ]"
-              >
+          <ul role="list" class="mt-3 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
+            <li v-for="project in projects" :key="project.name" class="col-span-1 flex rounded-md shadow-sm">
+              <div :class="[
+                project.bgColor,
+                'flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white',
+              ]">
                 {{ project.initials }}
               </div>
               <div
-                class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white"
-              >
+                class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
                 <div class="flex-1 truncate px-4 py-6 text-sm">
-                  <a
-                    :href="project.href"
-                    class="font-medium text-gray-900 hover:text-gray-600"
-                    >{{ project.name }}</a
-                  >
+                  <a :href="project.href" class="font-medium text-gray-900 hover:text-gray-600">{{ project.name }}</a>
                 </div>
               </div>
             </li>
@@ -95,6 +81,13 @@ const projects = [
     href: "/search-table",
     members: 8,
     bgColor: "bg-yellow-300",
+  },
+  {
+    name: "drag-and-drop",
+    initials: "DG",
+    href: "/drag-and-drop",
+    members: 8,
+    bgColor: "bg-teal-300",
   },
 ];
 </script>
