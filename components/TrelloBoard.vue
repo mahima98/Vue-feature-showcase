@@ -3,7 +3,7 @@ import type { Column, Task } from '~/types';
 import draggable from "vuedraggable"
 import { nanoid } from "nanoid"
 
-const columns = ref<Column[]>([
+const columns = useLocalStorage<Column[]>('TrelloBoard', [
     {
         id: nanoid(),
         title: "Backlog",
@@ -59,8 +59,14 @@ const columns = ref<Column[]>([
         ]
     }
 ]);
-
 const alt = useKeyModifier('Alt')
+
+watch(columns, () => {
+    // ajax request
+}, {
+    // set deep true because columns is an array
+    deep: true
+})
 </script>
 <template>
     <div>
@@ -82,8 +88,8 @@ const alt = useKeyModifier('Alt')
                         </template>
 
                     </draggable>
-                    <footer class="text-gray-400">
-                        <button>+ Add card</button>
+                    <footer>
+                        <NewTask @add="column.tasks.push($event)" />
                     </footer>
                 </div>
             </template>
