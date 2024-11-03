@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Column } from '~/types';
+import type { Column, Task } from '~/types';
 import draggable from "vuedraggable"
 import { nanoid } from "nanoid"
 
@@ -60,17 +60,28 @@ const columns = ref<Column[]>([
     }
 ]);
 
+const alt = useKeyModifier('Alt')
 </script>
 <template>
     <div>
-        <draggable v-model="columns" group="columns" item-key="id" :animation="150"
+        <draggable v-model="columns" group="columns" item-key="id" :animation="150" handle=".drag-handle"
             class="flex gap-4 overflow-x-auto items-start">
             <template #item="{ element: column }: { element: Column }">
                 <div class="bg-gray-200 p-5 rounded min-w-[250px]">
-                    <header>
+                    <header class="flex gap-2 font-bold mb-2">
+                        <DragHandle />
                         {{ column.title }}
                     </header>
-                    <TrelloBoardTask v-for="task in column.tasks" :task="task" :key="task.id" />
+
+                    <draggable v-model="column.tasks" :group="{ name: 'tasks', pull: alt ? 'clone' : true }"
+                        item-key="id" handle=".drag-handle" :animation="150">
+                        <template #item="{ element: task }: { element: Task }">
+                            <div>
+                                <TrelloBoardTask :task="task" />
+                            </div>
+                        </template>
+
+                    </draggable>
                     <footer class="text-gray-400">
                         <button>+ Add card</button>
                     </footer>
@@ -82,3 +93,21 @@ const columns = ref<Column[]>([
     {{ columns }}
 </pre>
 </template>
+<style>
+.sortable-chosen {
+    /* background-color: green; */
+}
+
+.sortable-drag .task {
+    transform: rotate(5deg);
+}
+
+.sortable-ghost .task {
+    position: relative;
+}
+
+.sortable-ghost .task::after {
+    content: "";
+    @apply absolute top-0 right-0 left-0 bottom-0 bg-slate-300 rounded;
+}
+</style>
