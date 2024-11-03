@@ -9,7 +9,9 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   devtools: { enabled: true },
+
   modules: [
     // ...
     "@nuxtjs/tailwindcss",
@@ -17,10 +19,12 @@ export default defineNuxtConfig({
     "@pinia-plugin-persistedstate/nuxt",
     "@vueuse/nuxt",
   ],
+
   css: [
     "@/assets/css/global.css",
     "primevue/resources/themes/lara-light-blue/theme.css",
   ],
+
   pinia: {
     autoImports: [
       // automatically imports `defineStore`
@@ -28,7 +32,10 @@ export default defineNuxtConfig({
       ["defineStore", "definePiniaStore"], // import { defineStore as definePiniaStore } from 'pinia'
     ],
   },
+
   build: {
     transpile: ["primevue"],
   },
+
+  compatibilityDate: "2024-11-03",
 });
